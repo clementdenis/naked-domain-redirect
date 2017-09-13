@@ -1,0 +1,5 @@
+dispatch:
+  - url: "redirect.${nakedDomain}/*"
+    service: redirect
+  - url: "${nakedDomain}/*"
+    service: redirect

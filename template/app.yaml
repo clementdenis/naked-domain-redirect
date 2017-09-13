@@ -1,0 +1,17 @@
+service: redirect
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+#optimize redirect for root
+- url: /$
+  static_files: empty.html
+  upload: empty.html
+  http_headers:
+    Refresh: 0; url=https://www.${nakedDomain}
+
+#requires javascript to work, redirect to root if not enabled
+- url: /(.+)$
+  static_files: redirect.html
+  upload: redirect.html
